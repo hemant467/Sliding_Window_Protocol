@@ -1,0 +1,43 @@
+//SLIDING WINDOW PROTOCOL
+
+
+#include <stdio.h>
+
+int main()
+{
+    int window_size,sent=0,ack,i;
+    printf("enter window size\n");
+    scanf("%d",&window_size);
+    while(1)
+    {
+        for(i=0;i<window_size;i++)
+        {
+            printf("frames %d has been transmitted\n",sent);
+            sent++;
+            if(sent==window_size)
+            break;
+        }
+        printf("enter last acknowledgement received\n");
+        scanf("%d",&ack);
+        if(ack==window_size)
+        break;
+        else
+        sent=ack;
+    }
+
+    return 0;
+}
+
+
+OUTPUT :
+Enter Window Size : 8
+frame 0 has been transmitted
+frame 1 has been transmitted
+frame 2 has been transmitted
+frame 3 has been transmitted
+frame 4 has been transmitted
+frame 5 has been transmitted
+frame 6 has been transmitted
+frame 7 has been transmitted
+
+Enter last acknowledgement received : 8
